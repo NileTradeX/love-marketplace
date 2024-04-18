@@ -1,0 +1,58 @@
+server:
+  tomcat:
+    max-swallow-size: 5MB
+    max-http-form-post-size: 30MB
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  application:
+    name: common-service-api
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 99ca9024-7dd9-45f2-a3f2-b349fe7cd3f9
+        group: DEFAULT_GROUP
+        username: nacos
+        password: nacos
+
+  redis:
+    host: localhost
+    lettuce:
+      shutdown-timeout: 100ms
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1ms
+
+  datasource:
+    username: root
+    password: root
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/marketplace?currentSchema=love
+
+aws:
+  s3:
+    accessKey: 1234
+    secretKey: 5678
+
+customer-io:
+  api-token: c6ee83794ac038a7d5a3c48dd5e40abf
+  api-url: https://api.customer.io/v1/send/email
+  template-alias:
+    welcome: welcome
+    password-reset: password-reset
+    merchant-invitation: merchant-invitation
+    merchant-review-reject: merchant-review-reject
+    merchant-review-approve: merchant-review-approve
+    order-summary-merchant: order-summary-merchant
+    order-summary-shopper: order-summary-shopper
+    refund-merchant: refund-merchant

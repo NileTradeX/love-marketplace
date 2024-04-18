@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: api-influencer
+  cloud:
+    nacos:
+      config:
+        namespace: f9b0a8a2-db1e-414a-bced-1cf1a8f49893
+        server-addr: nacos-headless.nacos.svc.cluster.local:8848
+        group: DEFAULT_GROUP
+        username: nacos
+        password: lovempnacos
+        file-extension: yml
+        shared-configs:
+          - dataId: common.yml
+            group: DEFAULT_GROUP
+            refresh: true
+  config:
+    import:
+      - nacos:api-influencer-prod.yml
+      - nacos:common.yml
+
+springdoc:
+  swagger-ui:
+    enabled: false
+  api-docs:
+    enabled: false

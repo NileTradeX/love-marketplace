@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: api-backend
+  cloud:
+    nacos:
+      config:
+        namespace: 65b36b83-a3b5-4827-ae4a-630564b6090d
+        server-addr: nacos-headless.nacos.svc.cluster.local:8848
+        group: DEFAULT_GROUP
+        username: nacos
+        password: lovempnacos
+        file-extension: yml
+        shared-configs:
+          - dataId: common.yml
+            group: DEFAULT_GROUP
+            refresh: true
+  config:
+    import:
+      - nacos:api-backend-stage.yml
+      - nacos:common.yml
+
+springdoc:
+  default-flat-param-object: true

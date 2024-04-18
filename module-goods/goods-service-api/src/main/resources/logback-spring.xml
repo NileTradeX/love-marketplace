@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true">
+
+    <property name="pattern" value="%6r [%t] [%-5p]--->[%d{yyyy-MM-dd HH:mm:ss.SSS}][%-50c][%-20M][%4L] %m%n"/>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <file>logs/app.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/rolling_app.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/${app_name}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SENTRY" class="io.sentry.logback.SentryAppender"/>
+
+    <logger name="com.alibaba.nacos.shaded" level="warn"/>
+    <logger name="io.seata.core.rpc" level="info"/>
+    <logger name="com.love.goods.mapper" level="@show.sql@"/>
+    　　　　　　
+    <root level="info">
+        <appender-ref ref="file"/>
+        <appender-ref ref="stdout"/>
+        <appender-ref ref="SENTRY"/>
+    </root>
+
+</configuration>

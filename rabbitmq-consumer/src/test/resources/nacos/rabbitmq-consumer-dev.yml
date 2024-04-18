@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: mq-consumer
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-headless.nacos.svc.cluster.local:8848
+        namespace: 99ca9024-7dd9-45f2-a3f2-b349fe7cd3f9
+        group: DEFAULT_GROUP
+        username: nacos
+        password: lovempnacos
+
+  rabbitmq:
+    dynamic: true
+    virtual-host: /
+    host: rabbitmq.dev.svc.cluster.local
+    port: 5671
+    username: mpdev
+    password: lovempdev2023
+    publisher-confirm-type: simple
+    publisher-returns: true
+    template:
+      mandatory: true
+    ssl:
+      enabled: true
+      verify-hostname: false
+      validate-server-certificate: false
+    listener:
+      type: simple
+      simple:
+        auto-startup: true
+        acknowledge-mode: auto
+
+algolia:
+  appId: DRJR6PKYH3
+  adminApiKey: c6c4034cc883ca22af4de6a206c82db4
+
+

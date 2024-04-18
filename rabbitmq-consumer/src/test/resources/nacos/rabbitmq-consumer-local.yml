@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: mq-consumer
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 99ca9024-7dd9-45f2-a3f2-b349fe7cd3f9
+        group: DEFAULT_GROUP
+        username: nacos
+        password: nacos
+
+  rabbitmq:
+    dynamic: true
+    virtual-host: /
+    host: localhost
+    port: 5672
+    username: root
+    password: root
+    publisher-confirm-type: simple
+    publisher-returns: true
+    template:
+      mandatory: true
+    listener:
+      type: simple
+      simple:
+        auto-startup: true
+        acknowledge-mode: auto
+
+algolia:
+  appId: DRJR6PKYH3
+  adminApiKey: c6c4034cc883ca22af4de6a206c82db4

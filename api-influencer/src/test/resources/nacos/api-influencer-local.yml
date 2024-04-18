@@ -1,0 +1,40 @@
+server:
+  tomcat:
+    max-swallow-size: 5MB
+    max-http-form-post-size: 30MB
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: api-influencer
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 30MB
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 99ca9024-7dd9-45f2-a3f2-b349fe7cd3f9
+        group: DEFAULT_GROUP
+        username: nacos
+        password: nacos
+
+  redis:
+    host: redis.dev.svc.cluster.local
+    lettuce:
+      shutdown-timeout: 100ms
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1ms
+
+cors:
+  host: https://*

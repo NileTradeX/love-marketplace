@@ -1,0 +1,50 @@
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  application:
+    name: payment-service-api
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 99ca9024-7dd9-45f2-a3f2-b349fe7cd3f9
+        group: DEFAULT_GROUP
+        username: nacos
+        password: nacos
+
+  redis:
+    host: localhost
+    lettuce:
+      shutdown-timeout: 100ms
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1ms
+
+  datasource:
+    username: root
+    password: root
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/marketplace?currentSchema=love
+
+adyen:
+  love-balance-account: "LoveHealthECOM"
+  legal-entity-api:
+    username: "ws_099715@Scope.Company_LoveHealth"
+    password: "Y+r5:de%e[PH2Y+7LzFwmEvx_"
+  account-holder-api:
+    username: "ws@BalancePlatform.LoveHealth"
+    password: "fEJbC9n(}_;+Zw&4-<+}jVmy#"
+  balance-account-api:
+    username: "ws@Company.LoveHealth"
+    password: ",9SzpHuzJU*T6}6<u%m$+;[&B"
+
+bolt:
+  api-url: https://api-sandbox.bolt.com

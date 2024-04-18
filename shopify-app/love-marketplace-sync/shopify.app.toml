@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "love-marketplace-sync"
+client_id = "effdbcc550505573c9c3dbd264d3a03d"
+application_url = "https://sentence-potato-coordinated-ms.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://sentence-potato-coordinated-ms.trycloudflare.com/auth/callback",
+  "https://sentence-potato-coordinated-ms.trycloudflare.com/auth/shopify/callback",
+  "https://sentence-potato-coordinated-ms.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-07"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "quickstart-589647a3.myshopify.com"

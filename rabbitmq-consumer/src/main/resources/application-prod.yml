@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: rabbitmq-consumer
+  cloud:
+    nacos:
+      config:
+        namespace: f9b0a8a2-db1e-414a-bced-1cf1a8f49893
+        server-addr: nacos-headless.nacos.svc.cluster.local:8848
+        group: DEFAULT_GROUP
+        username: nacos
+        password: lovempnacos
+        file-extension: yml
+  config:
+    import:
+      - nacos:rabbitmq-consumer-prod.yml

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: common-service-api
+  cloud:
+    nacos:
+      config:
+        namespace: 99ca9024-7dd9-45f2-a3f2-b349fe7cd3f9
+        server-addr: nacos.dev.love-ext-dns.com:8848
+        group: DEFAULT_GROUP
+        username: nacos
+        password: lovempnacos
+        file-extension: yml
+        shared-configs:
+          - dataId: common.yml
+            group: DEFAULT_GROUP
+            refresh: true
+          - dataId: redis.yml
+            group: DEFAULT_GROUP
+            refresh: true
+          - dataId: datasource.yml
+            group: DEFAULT_GROUP
+            refresh: true

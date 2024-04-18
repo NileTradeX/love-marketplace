@@ -1,0 +1,37 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: api-marketplace
+  cloud:
+    nacos:
+      config:
+        namespace: d710bb65-6abc-4157-89ae-bfaa9d62ba9e
+        server-addr: nacos.dev.love-ext-dns.com:8848
+        group: DEFAULT_GROUP
+        username: nacos
+        password: lovempnacos
+        file-extension: yml
+        shared-configs:
+          - dataId: common.yml
+            group: DEFAULT_GROUP
+            refresh: true
+          - dataId: redis.yml
+            group: DEFAULT_GROUP
+            refresh: true
+          - dataId: rabbitmq.yml
+            group: DEFAULT_GROUP
+            refresh: true
+  config:
+    import:
+      - nacos:api-marketplace.yml
+      - nacos:common.yml
+      - nacos:redis.yml
+      - nacos:rabbitmq.yml
+
+
+springdoc:
+  default-flat-param-object: true
+
+

@@ -1,0 +1,78 @@
+server:
+  servlet:
+    context-path: /api/fe
+
+spring:
+  application:
+    name: api-marketplace
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 30MB
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-headless.nacos.svc.cluster.local:8848
+        namespace: 99ca9024-7dd9-45f2-a3f2-b349fe7cd3f9
+        group: DEFAULT_GROUP
+        username: nacos
+        password: lovempnacos
+
+  redis:
+    host: redis.dev.svc.cluster.local
+    lettuce:
+      shutdown-timeout: 100ms
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1ms
+
+  rabbitmq:
+    dynamic: true
+    virtual-host: /
+    host: rabbitmq.dev.svc.cluster.local
+    port: 5671
+    username: mpdev
+    password: lovempdev2023
+    publisher-confirm-type: simple
+    publisher-returns: true
+    template:
+      mandatory: true
+    ssl:
+      enabled: true
+      verify-hostname: false
+      validate-server-certificate: false
+    listener:
+      type: simple
+      simple:
+        auto-startup: true
+        acknowledge-mode: auto
+
+app:
+  customer:
+    active-url: https://mp.truthseekers.love/account/activate
+    reset-password-url: https://mp.truthseekers.love/account/change-password
+    order-view-url: https://love.dev.love-ext-dns.com/order-status/?orderNo=
+  merchant:
+    order-view-url: https://merchant.dev.love-ext-dns.com/orders/page
+    view-refund-url: https://merchant.dev.love-ext-dns.com/refunds/page
+
+
+cors:
+  host: http*
+
+bolt:
+  api-url: https://api-sandbox.bolt.com
+  signing-secret: 1588a47a0807dcf8ab56e023c2a777c6ed77946c2d7ef89c43aba13c15125450
+  account:
+    publishable-key: znQesJUwTQNu.zzHIbHVEQ90n.b9c1061143ad82fb3471a7166906ab22a4ed6f59c40521b3e0a1a11144e009b0
+    api-key: 94da4907619be1031cee8a79f758bcea573ddaa4176e2ecef37e2d9e5dddaacb
+  checkout:
+    publishable-key: znQesJUwTQNu.CiJO2iDCGUnQ.0b56ad11775933c986809024832f134c1a7a9894a4e5f7dc4b64a356720943f7
+    api-key: 1b5d31a5022d59b53583a0123cc6c8e37d5969f052d1a5fc1250e40046c74ff8

@@ -1,0 +1,1 @@
+alter table love.m_category add column alias varchar(64) not null default '';

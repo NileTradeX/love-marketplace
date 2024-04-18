@@ -1,0 +1,11 @@
+sentry:
+  server-name: ${spring.application.name}
+  environment: ${spring.profiles.active}
+  release: 0.0.1
+  dsn: https://201e08ffb5c54a6fadfee6b82816286e@o4503979054989312.ingest.sentry.io/4505148759801856
+  # Set traces-sample-rate to 1.0 to capture 100% of transactions for performance monitoring.
+  # We recommend adjusting this value in production.
+  traces-sample-rate: 1.0
+  logging:
+    minimum-event-level: info
+    minimum-breadcrumb-level: debug
